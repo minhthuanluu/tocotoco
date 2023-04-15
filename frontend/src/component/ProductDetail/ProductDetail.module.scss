@@ -1,0 +1,120 @@
+.close{
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    background: #ccc;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    line-height: 200%;
+    cursor: pointer;
+    text-decoration: none;
+    color: #000;
+    transition: 0.4s;
+    &:hover{
+        background: #eee;
+        color: #000;
+    }
+}
+
+.product-flex{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+
+    figure{
+        margin: 0;
+        overflow: hidden;
+        width: 48%;
+        img{
+            width: 100%;
+        }
+    }
+    .product-detail{
+        width: 48%;
+        .product-name{
+            font-size: 30px;
+            line-height: 160%;
+        }
+        .product-price{
+            span{
+                font-size: 20px;
+            }
+        }
+        .product-qty{
+            margin: 10px 0;
+            span{
+                font-size: 20px;
+            }
+            button{
+                color: #ffffff;
+                background: #799dd9;
+                width: 25px;
+                height: 25px;
+                border-radius: 50%;
+                border: 0;
+                line-height: 160%;
+                font-size: 14px;
+                font-weight: 600;
+                text-align: center;
+                cursor: pointer;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                transition: 0.4s;
+                &:hover{
+                    background: #536c98;
+                }
+            }
+            .disable{
+                pointer-events: none;
+                opacity: 0.5;
+            }
+        }
+        .product-size{
+            margin: 10px 0;
+            span{
+                font-size: 20px;
+            }
+            select{
+                padding: 2px 5px;
+            }
+        }
+        .product-topping{
+            span{
+                font-size: 20px;
+            }
+            ul{
+                margin: 5px 0;
+                padding-left: 0;
+                li{
+                    list-style: none;
+                    display: flex;
+                    justify-content: space-between;
+                    label{
+                        cursor: pointer;
+                    }
+                    span{
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+        .product-submit{
+            margin-top: 20px;
+            button{
+                background: #d3b673;
+                border: 1px solid #d3b673;
+                padding: 10px;
+                cursor: pointer;
+                transition: 0.4s;
+                &:hover{
+                    background: #fff;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,239 @@
+.close{
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    background: #ccc;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    line-height: 200%;
+    cursor: pointer;
+    text-decoration: none;
+    color: #000;
+    transition: 0.4s;
+    &:hover{
+        background: #eee;
+        color: #000;
+    }
+}
+.content-flex{
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #ccc;
+    border-top: none;
+    margin-bottom: 0;
+    &:first-child{
+        border-top: 1px solid #ccc;
+    }
+    dt, dd{
+        text-align: center;
+        padding: 10px 5px;
+        border-right: 1px solid #ccc;
+        margin-bottom: 0;
+        &:first-child{
+            width: 15%;
+        }
+        &:nth-of-type(2){
+            width: 25%;
+        }
+        &:nth-of-type(3) {
+            width: 30%;
+        }
+        &:nth-of-type(4) {
+            width: 10%;
+        }
+        &:nth-of-type(5) {
+            width: 10%;
+        }
+        &:last-child{
+            width: 10%;
+            border-right: none;
+        }
+    }
+    dt{
+        font-size: 16px;
+    }
+    dd{
+        &:nth-of-type(3){
+            text-align: left;
+            p{
+                margin-bottom: 0;
+            }
+        }
+    }
+    &-img{
+        img{
+            width: 100%;
+        }
+    }
+    &-qty{
+        button{
+            margin: 0 10px;
+            color: #ffffff;
+            background: #799dd9;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            border: 0;
+            line-height: 160%;
+            font-size: 14px;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.4s;
+            &:hover{
+                background: #536c98;
+            }
+        }
+    }
+}
+.last-info{
+    dd{
+        &:first-child{
+            width: 80%;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    }
+}
+
+
+.btn-cart{
+    margin: 10px auto !important;
+    width: 200px !important;
+    pointer-events: none;
+    button{
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+        border-radius: 5px;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #d8b979;
+        border: none;
+        color: #ffffff;
+        cursor: pointer;
+        transition: 0.4s;
+        pointer-events: all;
+        &:hover{
+            background: #9c8454;
+        }
+        &:disabled{
+            opacity: 0.3;
+            pointer-events: none;
+        }
+    }
+}
+
+
+.content-flex-del{
+    button{
+        outline: none;
+        background: #d8b979;
+        border: none;
+        color: #ffffff;
+        padding: 5px 10px;
+        transition: 0.4s;
+        border-radius: 5px;
+        &:hover{
+            background: #9c8454;
+        }
+    }
+}
+.modal-pop-up{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    .left-info {
+        width: 70%;
+        margin: 0;
+        .content-width{
+            max-width: 100% !important;
+            .content-scroll{
+                max-width: 100% !important;
+                height: 500px;
+                overflow-y: auto;
+            }
+        }
+    }
+    .right-info{
+        width: 25%;
+        margin: 0;
+        .info-user{
+            p{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                span{
+                    width: 25%;
+                }
+            }
+            input, textarea{
+                width: 73%;
+                outline: none;
+                border: 1px solid #ccc;
+                padding: 5px;
+            }
+        }
+        .info-payload{
+            div{
+                margin-bottom: 20px;
+                max-width: 100% !important;
+            }
+            ul{
+                padding-left: 0;
+                li{
+                    margin-bottom: 0;
+                    text-align: center;
+                    img{
+                        width: 35%;
+                    }
+                    p, h6, h5{
+                        margin-bottom: 0;
+                    }
+                    p{
+                        font-weight: bold;
+                    }
+                    h6{
+                        font-weight: normal;
+                    }
+                    h5{
+                        font-style: italic;
+                        font-size: 18px;
+                        color: #799dd9;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+@media screen and (max-width: 767px){
+    .modal-pop-up{
+        .left-info{
+            width: 100%;
+            margin-bottom: 50px;
+            .content-width{
+                overflow-x: scroll;
+                .content-scroll{
+                    width: 650px;
+                    max-width: 1500px !important;
+                }
+            }
+        }
+        .right-info{
+            width: 100%;
+        }
+    }
+    
+}

@@ -1,0 +1,10 @@
+{
+  "name": "tocotoco",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "backend":"cd backend && yarn install && yarn start",
+    "frontend":"cd frontend && yarn && yarn start"
+  }
+}

@@ -1,0 +1,485 @@
+{
+	"info": {
+		"_postman_id": "91cf9978-142a-4e0f-ab34-e2f80100b290",
+		"name": "TocoToco",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7934905"
+	},
+	"item": [
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "get all category",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.20.6:3000/api/v1/categories",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"20",
+								"6"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get product by category id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.20.6:3000/api/v1/products/categoryId=63ddfdac6a601b2d9dd351d4",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"20",
+								"6"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"categoryId=63ddfdac6a601b2d9dd351d4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get product by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.20.6:3000/api/v1/products/63ddfdac6a601b2d9dd351d4",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"20",
+								"6"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"63ddfdac6a601b2d9dd351d4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cart",
+			"item": [
+				{
+					"name": "get all cart",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZWMzZGM1NjIzZjVjNzU3NmYyNWM2ZiIsImVtYWlsIjoibWluaHRodWFuLmx1dUBnbWFpbC5jb20iLCJpYXQiOjE2Nzc1NDc1MTQsImV4cCI6MTY3NzYzMzkxNH0.U1hbjTjyLdjuZhFwo3z-p-390mCpdk7TXo-VxLXHgh4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.20.6:3000/api/v1/carts/63ec3dc5623f5c7576f25c6f",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"20",
+								"6"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"carts",
+								"63ec3dc5623f5c7576f25c6f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add new cart",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZWMzZGM1NjIzZjVjNzU3NmYyNWM2ZiIsImVtYWlsIjoibWluaHRodWFuLmx1dUBnbWFpbC5jb20iLCJpYXQiOjE2Nzc1NDc1MTQsImV4cCI6MTY3NzYzMzkxNH0.U1hbjTjyLdjuZhFwo3z-p-390mCpdk7TXo-VxLXHgh4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"image\": \"https://phuclong.com.vn/uploads/dish/b8f1dd4d4f583c-dacthom.png\",\n        \"description\": \"Chưa có thông tin\",\n        \"size\": [\n            {\n                \"name\": \"L\",\n                \"price\": 63000\n            },\n            {\n                \"name\": \"XL\",\n                \"price\": 57000\n            },\n            {\n                \"name\": \"ML\",\n                \"price\": 50000\n            }\n        ],\n        \"old_price\": 0,\n        \"price\": 50000,\n        \"_id\": \"63de00986a601b2d9dd351da\",\n        \"name\": \"Trà Lài Đác Thơm\",\n        \"category\": {\n            \"_id\": \"63ddfdac6a601b2d9dd351d4\",\n            \"name\": \"Trà\"\n        },\n        \"topping\": [\n            {\n                \"name\": \"Thêm trân châu sương mai\",\n                \"price\": 8000\n            },\n            {\n                \"name\": \"Thêm trân châu Baby\",\n                \"price\": 9000\n            },\n            {\n                \"name\": \"Thêm trân châu hoàng kim\",\n                \"price\": 7000\n            },\n            {\n                \"name\": \"Thêm thạch băng tuyết\",\n                \"price\": 7000\n            }\n        ],\n        \"id\": \"63de00986a601b2d9dd351da\"\n    },\n    {\n        \"image\": \"https://phuclong.com.vn/uploads/dish/dae727e03e8092-daccam.png\",\n        \"description\": \"Chưa có thông tin\",\n        \"size\": [\n            {\n                \"name\": \"L\",\n                \"price\": 70000\n            },\n            {\n                \"name\": \"ML\",\n                \"price\": 53000\n            },\n            {\n                \"name\": \"XL\",\n                \"price\": 76000\n            }\n        ],\n        \"old_price\": 0,\n        \"price\": 70000,\n        \"_id\": \"63de03606a601b2d9dd351db\",\n        \"name\": \"Hồng Trà Đác Cam\",\n        \"category\": {\n            \"_id\": \"63ddfdac6a601b2d9dd351d4\",\n            \"name\": \"Trà\"\n        },\n        \"topping\": [\n            {\n                \"name\": \"Thêm trân châu sương mai\",\n                \"price\": 8000\n            },\n            {\n                \"name\": \"Thêm trân châu Baby\",\n                \"price\": 9000\n            },\n            {\n                \"name\": \"Thêm trân châu hoàng kim\",\n                \"price\": 7000\n            },\n            {\n                \"name\": \"Thêm thạch băng tuyết\",\n                \"price\": 7000\n            }\n        ],\n        \"id\": \"63de03606a601b2d9dd351db\"\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://192.168.20.6:3000/api/v1/carts/63ec3dc5623f5c7576f25c6f",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"20",
+								"6"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"carts",
+								"63ec3dc5623f5c7576f25c6f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete one product on cart",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZWMzZGM1NjIzZjVjNzU3NmYyNWM2ZiIsImVtYWlsIjoibWluaHRodWFuLmx1dUBnbWFpbC5jb20iLCJpYXQiOjE2NzcyMzY0MTMsImV4cCI6MTY3NzMyMjgxM30.n1u_jdi3F2D5yQD9bx4gB3M-o5oXmHnI8Q7SvrbAGW4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":\"63de00986a601b2d9dd351da\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://192.168.20.6:3000/api/v1/carts/63ec3dc5623f5c7576f25c6f",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"20",
+								"6"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"carts",
+								"63ec3dc5623f5c7576f25c6f"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Signin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"minhthuan.luu@gmail.com\",\r\n    \"pass\":\"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://192.168.20.6:3000/api/v1/users/signin?lang=en",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"20",
+								"6"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"signin"
+							],
+							"query": [
+								{
+									"key": "lang",
+									"value": "en"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Thuan\",\n    \"email\":\"minhthuan.luu@gmail.com\",\n    \"pass\":\"12345678\",\n    \"phone\":\"0383838003\",\n    \"street\":\"Trường Chinh\",\n    \"apartment\":\"Gousto House\",\n    \"zip\":\"1000000\",\n    \"city\":\"Hồ Chí Minh\",\n    \"country\":\"Viet Nam\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://192.168.20.6:3000/api/v1/users/signup",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"20",
+								"6"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"minhthuan.luu@gmail.com\",\n    \"oldpassword\":\"123456\",\n    \"newpassword\":\"12345678\",\n    \"confirmpassword\":\"12345678\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://192.168.20.6:3000/api/v1/users/change-password",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"20",
+								"6"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"change-password"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZWMzZGM1NjIzZjVjNzU3NmYyNWM2ZiIsImVtYWlsIjoibWluaHRodWFuLmx1dUBnbWFpbC5jb20iLCJpYXQiOjE2Nzc1NDc1MTQsImV4cCI6MTY3NzYzMzkxNH0.U1hbjTjyLdjuZhFwo3z-p-390mCpdk7TXo-VxLXHgh4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"product\": [\n            {\n                \"image\": \"https://phuclong.com.vn/uploads/dish/b8f1dd4d4f583c-dacthom.png\",\n                \"description\": \"Chưa có thông tin\",\n                \"size\": [\n                    {\n                        \"name\": \"L\",\n                        \"price\": 63000\n                    },\n                    {\n                        \"name\": \"XL\",\n                        \"price\": 57000\n                    },\n                    {\n                        \"name\": \"ML\",\n                        \"price\": 50000\n                    }\n                ],\n                \"old_price\": 0,\n                \"price\": 50000,\n                \"_id\": \"63de00986a601b2d9dd351da\",\n                \"name\": \"Trà Lài Đác Thơm\",\n                \"category\": {\n                    \"_id\": \"63ddfdac6a601b2d9dd351d4\",\n                    \"name\": \"Trà\"\n                },\n                \"topping\": [\n                    {\n                        \"name\": \"Thêm trân châu sương mai\",\n                        \"price\": 8000\n                    },\n                    {\n                        \"name\": \"Thêm trân châu Baby\",\n                        \"price\": 9000\n                    },\n                    {\n                        \"name\": \"Thêm trân châu hoàng kim\",\n                        \"price\": 7000\n                    },\n                    {\n                        \"name\": \"Thêm thạch băng tuyết\",\n                        \"price\": 7000\n                    }\n                ],\n                \"id\": \"63de00986a601b2d9dd351da\"\n            },\n            {\n                \"image\": \"https://phuclong.com.vn/uploads/dish/dae727e03e8092-daccam.png\",\n                \"description\": \"Chưa có thông tin\",\n                \"size\": [\n                    {\n                        \"name\": \"L\",\n                        \"price\": 70000\n                    },\n                    {\n                        \"name\": \"ML\",\n                        \"price\": 53000\n                    },\n                    {\n                        \"name\": \"XL\",\n                        \"price\": 76000\n                    }\n                ],\n                \"old_price\": 0,\n                \"price\": 70000,\n                \"_id\": \"63de03606a601b2d9dd351db\",\n                \"name\": \"Hồng Trà Đác Cam\",\n                \"category\": {\n                    \"_id\": \"63ddfdac6a601b2d9dd351d4\",\n                    \"name\": \"Trà\"\n                },\n                \"topping\": [\n                    {\n                        \"name\": \"Thêm trân châu sương mai\",\n                        \"price\": 8000\n                    },\n                    {\n                        \"name\": \"Thêm trân châu Baby\",\n                        \"price\": 9000\n                    },\n                    {\n                        \"name\": \"Thêm trân châu hoàng kim\",\n                        \"price\": 7000\n                    },\n                    {\n                        \"name\": \"Thêm thạch băng tuyết\",\n                        \"price\": 7000\n                    }\n                ],\n                \"id\": \"63de03606a601b2d9dd351db\"\n            }\n        ],\n        \"createAt\": \"2023-02-28T02:20:26.107Z\",\n        \"_id\": \"63fd64fa899be90d9f6e6de9\",\n        \"user\": {\n            \"isAdmin\": false,\n            \"street\": \"Trường Chinh\",\n            \"apartment\": \"Gousto House\",\n            \"zip\": \"1000000\",\n            \"city\": \"Hồ Chí Minh\",\n            \"country\": \"Viet Nam\",\n            \"_id\": \"63ec3dc5623f5c7576f25c6f\",\n            \"name\": \"Thuan\",\n            \"email\": \"minhthuan.luu@gmail.com\",\n            \"passwordHash\": \"$2a$10$VzFvJOjCDdkJdfI8sWjuEuRaXtbZC5L8QeLKq1rTkqbKcUe.WwWlK\",\n            \"phone\": \"0383838003\",\n            \"__v\": 0,\n            \"id\": \"63ec3dc5623f5c7576f25c6f\"\n        },\n        \"__v\": 0\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://192.168.20.6:3000/api/v1/orders",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"20",
+								"6"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remove",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZWMzZGM1NjIzZjVjNzU3NmYyNWM2ZiIsImVtYWlsIjoibWluaHRodWFuLmx1dUBnbWFpbC5jb20iLCJpYXQiOjE2Nzc1NDc1MTQsImV4cCI6MTY3NzYzMzkxNH0.U1hbjTjyLdjuZhFwo3z-p-390mCpdk7TXo-VxLXHgh4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://192.168.20.6:3000/api/v1/orders/remove/63fd7224675ab617f2b66c72",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"20",
+								"6"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"orders",
+								"remove",
+								"63fd7224675ab617f2b66c72"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get order list",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZWMzZGM1NjIzZjVjNzU3NmYyNWM2ZiIsImVtYWlsIjoibWluaHRodWFuLmx1dUBnbWFpbC5jb20iLCJpYXQiOjE2Nzc1NDc1MTQsImV4cCI6MTY3NzYzMzkxNH0.U1hbjTjyLdjuZhFwo3z-p-390mCpdk7TXo-VxLXHgh4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"uid\":\"63ec3dc5623f5c7576f25c6f\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://192.168.20.6:3000/api/v1/orders",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"20",
+								"6"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://192.168.1.4:3000/"
+		}
+	]
+}
