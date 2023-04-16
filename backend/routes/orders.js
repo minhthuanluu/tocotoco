@@ -7,7 +7,8 @@ const { Order } = require('../models/order');
 const moment = require("moment")
 // Order product
 router.post('/', async (req, res) => {
-    const user = await User.findOne({ email: req.body.user.email });
+    const user = await User.findOne({ email: req.body?.user?.email });
+    // console.log(req);
     if (!user) {
 
     } else {

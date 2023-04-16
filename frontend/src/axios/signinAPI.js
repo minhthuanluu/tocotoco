@@ -1,9 +1,10 @@
 import axios from 'axios';
+import { BASE_URL } from './base';
 
 async function signinAPI(email, pass) {
     console.log(email, pass);
     try {
-        const response = await axios.put(`http://192.168.100.7:3000/api/v1/users/signin?lang=en`, {
+        const response = await axios.put(`${BASE_URL}/users/signin?lang=en`, {
             email,
             pass
         });

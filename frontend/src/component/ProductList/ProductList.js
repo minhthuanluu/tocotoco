@@ -32,7 +32,7 @@ function ProductList({ data, loading, category, value, handleChange }) {
                         <TabList onChange={handleChange} aria-label="lab API tabs example">
                             {
                                 category?.map(cate => (
-                                    <Tab label={cate.name} value={cate._id} />
+                                    <Tab key={cate._id} label={cate.name} value={cate._id} />
                                 ))
                             }
                         </TabList>
@@ -56,7 +56,7 @@ function ProductList({ data, loading, category, value, handleChange }) {
                                                     <div className="product-price">
                                                         <div className="product-origin-price">Giá {product.price.toLocaleString()}đ</div>
                                                     </div>
-                                                    <button className={cx('btn-detail', 'btn-order-product')}
+                                                    <button key={index} className={cx('btn-detail', 'btn-order-product')}
                                                         onClick={() => onShowProductDetail(product)}>
                                                         Xem Chi tiết
                                                     </button>

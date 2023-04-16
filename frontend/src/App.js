@@ -5,7 +5,7 @@ import "./assets/css/home.css";
 
 function App() {
   return (
-    <Home></Home>
+    <Home/>
   );
 }
 

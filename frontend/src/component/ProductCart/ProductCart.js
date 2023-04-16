@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useReducer, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import classNames from "classnames/bind";
 import styles from "./ProductCart.module.scss";
@@ -23,7 +23,8 @@ function ProductCart({ showPopUpCart, closePopupCart }) {
     const [customer_phone, setCustomer_phone] = useState("");
     const [customer_note, setCustomer_note] = useState("");
     const [priceItem, setPriceItem] = useState(0)
-    const [totalPrice, setTotalPrice] = useState(0)
+    const [totalPrice, setTotalPrice] = useState(0);
+    const [user, setuser] = useState('')
     const [infoCustomer, setInfoCustomer] = useState(() => {
         const newCustomer = JSON.parse(localStorage.getItem("ListInfoCustomer"));
         return newCustomer ?? [];
@@ -32,11 +33,19 @@ function ProductCart({ showPopUpCart, closePopupCart }) {
     const [productCart, setProductCart] = useState(() => {
         const newProductCart = JSON.parse(localStorage.getItem("list_products"));
         return newProductCart ?? [];
-    })
+    });
 
-    const user = JSON.parse(localStorage.getItem('User'))
+    useEffect(() => {
+        const init = () => {
+            const _user = localStorage.getItem('User');
+            if (_user) setuser(_user)
 
-    const dispatch = useDispatch()
+        };
+        init();
+    }, []);
+
+    const dispatch = useDispatch();
+    const productReducer = useSelector(state => state.orders)
 
     const ref = useRef();
     // Xử lý điều kiện khi input nhập không đủ ký tự và số
@@ -64,7 +73,7 @@ function ProductCart({ showPopUpCart, closePopupCart }) {
     }
 
     // Thêm thông tin và sản phẩm của khách hàng
-    const handleSubmit = () => {
+    const handleSubmit = (customer_name, customer_phone, customer_note, productCart) => {
         setInfoCustomer((prev) => {
             const listInfoCustomer = [
                 ...prev,
@@ -83,15 +92,35 @@ function ProductCart({ showPopUpCart, closePopupCart }) {
                 "ListInfoCustomer",
                 JSON.stringify(listInfoCustomer)
             );
+            
             return listInfoCustomer;
         });
 
-        setProductCart([])
+        const sample = {
+            "createAt": "2023-02-28T02:20:26.107Z",
+            "_id": "63fd64fa899be90d9f6e6de9",
+            "user": {
+                "isAdmin": false,
+                "street": "Trường Chinh",
+                "apartment": "Gousto House",
+                "zip": "1000000",
+                "city": "Hồ Chí Minh",
+                "country": "Viet Nam",
+                "_id": "63ec3dc5623f5c7576f25c6f",
+                "name": customer_name,
+                "email": "minhthuan.luu@gmail.com",
+                "passwordHash": "$2a$10$VzFvJOjCDdkJdfI8sWjuEuRaXtbZC5L8QeLKq1rTkqbKcUe.WwWlK",
+                "phone": customer_phone,
+                "__v": 0,
+                "id": "63ec3dc5623f5c7576f25c6f"
+            },
+        }
+       
+        const user = JSON.parse(localStorage.getItem('User'));
+        const product = productCart;
 
-        setCustomer_name("");
-        setCustomer_phone("");
-        setCustomer_note("")
-        ref.current.focus();
+        dispatch(loadOrder(product,user));
+
     };
 
     // Chức năng giúp input chỉ được nhập số
@@ -274,7 +303,7 @@ function ProductCart({ showPopUpCart, closePopupCart }) {
                             </div>
 
                             <div className={cx("btn-cart")}>
-                                <button enabledButton={enabledButton} onClick={() => handleSubmit()}>
+                                <button enabledButton={enabledButton} onClick={() => handleSubmit(customer_name, customer_phone, customer_note, productCart)}>
                                     Đặt Hàng
                                 </button>
                             </div>

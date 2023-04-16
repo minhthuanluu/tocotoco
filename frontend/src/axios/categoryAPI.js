@@ -1,8 +1,9 @@
 import axios from 'axios';
+import { BASE_URL } from './base';
 
 async function categoryAPI(params) {
     try {
-        const response = await axios.get('http://192.168.100.7:3000/api/v1/categories');
+        const response = await axios.get(`${BASE_URL}/categories`);
         return response
     } catch (error) {
         console.error(error);

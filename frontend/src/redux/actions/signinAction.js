@@ -5,13 +5,16 @@ export const loadSignin = (email, pass) => async dispatch => {
 
     try {
         dispatch({ type: FETCH_SIGN_IN_REQUEST })
-        const signIn = await signinAPI(email, pass)
-        localStorage.setItem('Token', signIn?.data?.token)
-        localStorage.setItem('User', JSON.stringify(signIn?.data?.user))
+        const signIn = await signinAPI(email, pass);
+        sessionStorage.setItem('Token', signIn?.data?.token);
+        sessionStorage.setItem('User', JSON.stringify(signIn?.data?.user));
+        const token = sessionStorage.getItem('Token');
+        const user = sessionStorage.getItem('User');
+       if(token && user){ 
         dispatch({
             type: FETCH_SIGN_IN_SUCCESS,
             data: signIn.data
-        })
+        })}
     } catch (error) {
         console.log(error);
         dispatch({ type: FETCH_SIGN_IN_ERROR, message: error })

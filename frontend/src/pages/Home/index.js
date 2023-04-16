@@ -29,7 +29,8 @@ function Home() {
     useEffect(() => {
         dispatch(loadProducts(value))
         dispatch(loadCategorys())
-    }, [])
+    }, []);
+    console.log(data)
 
     return (
         <>

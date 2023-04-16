@@ -29,7 +29,7 @@ function Header({ callbackToken, callbackUserID }) {
 
     const countItemOnLocalStore = JSON.parse(localStorage.getItem("list_products"));
     let token = localStorage.getItem('Token')
-    let user = JSON.parse(localStorage.getItem('User')) || null
+    let user = localStorage.getItem('User') !== null ? localStorage.getItem('User'): null;
     const boxStyle = {
         color: '#fff',
         transition: '0.4s',
@@ -39,7 +39,7 @@ function Header({ callbackToken, callbackUserID }) {
     };
 
     const closePopupCart = () => {
-        if (countItemOnLocalStore.length > 0) {
+        if (countItemOnLocalStore?.length > 0) {
             window.location.reload(false);
         }
         setShowPopUpCart(false)
@@ -95,7 +95,7 @@ function Header({ callbackToken, callbackUserID }) {
                                 >
                                     <button onClick={() => setShowPopUpCart(true)}>
                                         <ShoppingCartOutlinedIcon sx={boxStyle} />
-                                        {countItemOnLocalStore.length > 0 ? <span>{countItemOnLocalStore.length}</span> : ''}
+                                        {countItemOnLocalStore?.length > 0 ? <span>{countItemOnLocalStore.length}</span> : ''}
                                     </button>
                                 </li>
                                 <li

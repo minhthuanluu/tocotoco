@@ -9,7 +9,7 @@ import { useEffect } from 'react';
 
 const cx = classNames.bind(styles);
 
-function Login({ showPopUpLogin, closePopupLogin }) {
+function Login({ showPopUpLogin, closePopupLogin, setShowPopUpLogin }) {
 
     const [customer_email, setCustomer_email] = useState("");
     const [customer_password, setCustomer_password] = useState("");
@@ -27,8 +27,11 @@ function Login({ showPopUpLogin, closePopupLogin }) {
 
     const loginAccount = async (email, password) => {
         await dispatch(loadSignin(email, password))
-        // setShowPopUpLogin(false)
-        await window.location.reload(false);
+        if(signin_user){
+            setShowPopUpLogin(false)
+            window.location.reload(false);
+        };
+       
     }
 
     return (

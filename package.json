@@ -4,7 +4,12 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "backend":"cd backend && yarn install && yarn start",
-    "frontend":"cd frontend && yarn && yarn start"
+    "backend": "cd backend && yarn install && yarn start",
+    "frontend": "cd frontend && yarn && yarn start",
+    "startfe": "cd frontend && yarn start",
+    "startbe": "cd backend && yarn start"
+  },
+  "dependencies": {
+    "moment": "^2.29.4"
   }
 }
