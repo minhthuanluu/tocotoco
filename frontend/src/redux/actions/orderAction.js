@@ -6,13 +6,11 @@ export const loadOrder = (product_order, user) => async dispatch => {
         dispatch({ type: FETCH_ORDER_REQUEST })
 
         const orders = await orderAPI(product_order, user);
-
-       if(orders){
+        
         dispatch({
             type: FETCH_ORDER_SUCCESS,
             data: orders
-        })
-       }
+        });
     } catch (error) {
         dispatch({ type: FETCH_ORDER_ERROR, message: error })
     }

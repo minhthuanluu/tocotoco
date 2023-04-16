@@ -12,10 +12,8 @@ async function orderAPI(product, user) {
             "__v": 0
         };
 
-        const response = await axios.post(`${BASE_URL}/orders`, data );
-        return response
+        return await axios.post(`${BASE_URL}/orders`, data );
     } catch (error) {
-        console.log(error);
         return error;
     }
 }

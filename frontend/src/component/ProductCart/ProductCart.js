@@ -4,6 +4,7 @@ import classNames from "classnames/bind";
 import styles from "./ProductCart.module.scss";
 import images from '../../assets/images';
 import Popup from 'reactjs-popup';
+import Spinner from 'react-bootstrap/Spinner';
 import { loadOrder } from '../../redux/actions/orderAction'
 
 const cx = classNames.bind(styles);
@@ -24,7 +25,11 @@ function ProductCart({ showPopUpCart, closePopupCart }) {
     const [customer_note, setCustomer_note] = useState("");
     const [priceItem, setPriceItem] = useState(0)
     const [totalPrice, setTotalPrice] = useState(0);
+    const orderSelector = useSelector(state => state.orders);
+    const { loading, success, data } = orderSelector
+    const [_loading, setLoading] = useState(false)
     const [user, setuser] = useState('')
+
     const [infoCustomer, setInfoCustomer] = useState(() => {
         const newCustomer = JSON.parse(localStorage.getItem("ListInfoCustomer"));
         return newCustomer ?? [];
@@ -92,34 +97,22 @@ function ProductCart({ showPopUpCart, closePopupCart }) {
                 "ListInfoCustomer",
                 JSON.stringify(listInfoCustomer)
             );
-            
+
             return listInfoCustomer;
         });
 
-        const sample = {
-            "createAt": "2023-02-28T02:20:26.107Z",
-            "_id": "63fd64fa899be90d9f6e6de9",
-            "user": {
-                "isAdmin": false,
-                "street": "Trường Chinh",
-                "apartment": "Gousto House",
-                "zip": "1000000",
-                "city": "Hồ Chí Minh",
-                "country": "Viet Nam",
-                "_id": "63ec3dc5623f5c7576f25c6f",
-                "name": customer_name,
-                "email": "minhthuan.luu@gmail.com",
-                "passwordHash": "$2a$10$VzFvJOjCDdkJdfI8sWjuEuRaXtbZC5L8QeLKq1rTkqbKcUe.WwWlK",
-                "phone": customer_phone,
-                "__v": 0,
-                "id": "63ec3dc5623f5c7576f25c6f"
-            },
-        }
-       
+        // Check xem vi sao nhan 2 lan no moi gui submit?
         const user = JSON.parse(localStorage.getItem('User'));
         const product = productCart;
 
-        dispatch(loadOrder(product,user));
+        setLoading(true)
+        dispatch(loadOrder(product, user));
+
+        setLoading(false)
+        if (data) {
+            localStorage.removeItem('list_products');
+            closePopupCart();
+        }
 
     };
 
@@ -304,7 +297,9 @@ function ProductCart({ showPopUpCart, closePopupCart }) {
 
                             <div className={cx("btn-cart")}>
                                 <button enabledButton={enabledButton} onClick={() => handleSubmit(customer_name, customer_phone, customer_note, productCart)}>
-                                    Đặt Hàng
+                                    {_loading === true ? <Spinner animation="border" role="status">
+                                        <span className="visually-hidden">Loading...</span>
+                                    </Spinner> : 'Đặt Hàng'}
                                 </button>
                             </div>
 
